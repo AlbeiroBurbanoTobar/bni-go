@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Inter:wght@400;500;600&amp;family=Work+Sans:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#284552",
+                    "background": "#f8f9fa",
+                    "secondary-fixed-dim": "#7af7e3",
+                    "on-tertiary-fixed-variant": "#2e4b57",
+                    "inverse-surface": "#2e3132",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary": "#006b5f",
+                    "on-tertiary-container": "#94b2c1",
+                    "on-primary-fixed-variant": "#224779",
+                    "on-error": "#ffffff",
+                    "surface-variant": "#e1e3e4",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#adcbda",
+                    "outline": "#737780",
+                    "on-primary-container": "#8caee7",
+                    "on-secondary-fixed": "#002020",
+                    "tertiary": "#102f3b",
+                    "on-surface": "#191c1d",
+                    "primary-fixed": "#d5e3ff",
+                    "surface-container-highest": "#e1e3e4",
+                    "inverse-on-surface": "#f0f1f2",
+                    "outline-variant": "#c3c6d0",
+                    "secondary-container": "#7af7e3",
+                    "on-primary-fixed": "#001b3c",
+                    "tertiary-fixed": "#c9e7f7",
+                    "surface-dim": "#d9dadb",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#93f2f2",
+                    "on-secondary-container": "#006b5f",
+                    "primary-fixed-dim": "#a8c8ff",
+                    "surface-container-low": "#f3f4f5",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#edeeef",
+                    "surface": "#f8f9fa",
+                    "on-background": "#191c1d",
+                    "primary": "#072441",
+                    "surface-tint": "#3c5f93",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed-variant": "#004f4f",
+                    "on-tertiary-fixed": "#001f2a",
+                    "primary-container": "#072441",
+                    "surface-bright": "#f8f9fa",
+                    "inverse-primary": "#a8c8ff",
+                    "error-container": "#ffdad6",
+                    "on-surface-variant": "#43474f",
+                    "surface-container-high": "#e7e8e9",
+                    "on-secondary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"],
+                    "work": ["Work Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface">
+<!-- SideNavBar from COMPONENTS_10 style -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#072441] flex flex-col py-6 z-50 shadow-2xl font-work text-sm tracking-wide">
+<div class="mb-10 px-6 flex items-center gap-3">
+<div class="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-2xl" data-icon="school">school</span>
+</div>
+<div>
+<h1 class="text-2xl font-black text-white tracking-tighter leading-none">EduArch</h1>
+<p class="text-[10px] text-white opacity-60 uppercase font-semibold">Academic Management</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-6 py-3 text-white opacity-100 border-l-4 border-[#006b5f] bg-[#213a58] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium">Panel de Control</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-white opacity-70 hover:opacity-100 hover:bg-[#213a58] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-medium">Mis Clases</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-white opacity-70 hover:opacity-100 hover:bg-[#213a58] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-medium">Estudiantes</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-white opacity-70 hover:opacity-100 hover:bg-[#213a58] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="grade">grade</span>
+<span class="font-medium">Calificaciones</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-white opacity-70 hover:opacity-100 hover:bg-[#213a58] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-medium">Calendario</span>
+</a>
+</nav>
+<div class="px-4 mt-auto mb-6">
+<button class="w-full flex items-center justify-center gap-2 py-3 bg-secondary text-white rounded-lg font-bold shadow-lg hover:brightness-110 transition-all active:scale-95">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+<span>Nueva Clase</span>
+</button>
+</div>
+<div class="pt-4 border-t border-white/10 space-y-1">
+<a class="flex items-center gap-3 px-6 py-2 text-white opacity-70 hover:opacity-100 hover:bg-[#213a58] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-medium">Ayuda</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-2 text-white opacity-70 hover:opacity-100 hover:bg-[#213a58] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-medium">Cerrar Sesión</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen">
+<!-- TopAppBar from COMPONENTS_10 style -->
+<header class="flex justify-between items-center px-8 h-16 w-full bg-[#f8f9fb] dark:bg-slate-900 sticky top-0 z-40">
+<div class="flex items-center gap-6">
+<span class="text-xl font-extrabold text-[#072441] dark:text-white font-['Manrope'] tracking-tight">Academic Editorial</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative w-64 mr-4">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full pl-10 pr-4 py-1.5 bg-[#f2f4f6] dark:bg-slate-800 border-none rounded-md text-sm focus:ring-2 focus:ring-[#006b5f] transition-all" placeholder="Buscar material..." type="text"/>
+</div>
+<button class="p-2 text-slate-500 hover:bg-[#f2f4f6] dark:hover:bg-slate-800 transition-colors rounded-full relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-[#f2f4f6] dark:hover:bg-slate-800 transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="flex items-center gap-3 ml-2 pl-4 border-l border-slate-200 dark:border-slate-700">
+<div class="text-right">
+<p class="text-xs font-bold text-[#072441] dark:text-slate-100">Prof. Carlos García</p>
+<p class="text-[10px] text-slate-500">Editor Académico</p>
+</div>
+<img alt="User profile avatar" class="w-10 h-10 rounded-full border-2 border-[#7af7e3] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwTqMkKXDtSW8HjD3z4n_B9rwmzy7TQ886wG9FzPQG0VZHXrH3xW-xZllJHaqEGGQyLcjRjset_8We6SOuo6TSLHmTtiAqNMkI_pf4DPdPyqvvNiW7Gni4uFS1jsjWjN8M-jKVJT5uP6_Dp6keRd2746eifYHwojCgmBCscdSxBRT6hL8Bpa0Bm-HkOW5n7EKBC-lVmVa4SjrEGjbKHGfFKTV9MaKKjXkw-iQQXccn6DFqp8nhKBjKxBcFrzHj3r9fgKl5IlEK6wo"/>
+</div>
+</div>
+</header>
+<div class="p-8 max-w-7xl mx-auto">
+<!-- Header Section -->
+<div class="mb-12">
+<h2 class="font-headline font-extrabold text-4xl text-[#072441] tracking-tight mb-2">Selección de Jornada Académica</h2>
+<p class="text-on-surface-variant text-lg max-w-2xl font-body">Personalice el entorno editorial seleccionando la ubicación y el nivel de estudio para comenzar la gestión de contenidos.</p>
+</div>
+<!-- Selection Bento Grid -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Main Configuration Card -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-[2rem] p-8 shadow-[0px_12px_32px_rgba(7,36,65,0.06)]">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-2 h-8 bg-[#072441] rounded-full"></div>
+<h3 class="font-headline font-bold text-2xl text-on-surface">Configurar Criterios</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+<!-- Selector Ciudad -->
+<div class="space-y-4">
+<label class="flex items-center gap-2 text-sm font-semibold text-on-surface-variant uppercase tracking-widest ml-1">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                            Ciudad / Municipio
+                        </label>
+<div class="relative group">
+<select class="w-full bg-surface-container-low border-b-2 border-outline-variant py-4 px-4 text-on-surface font-semibold appearance-none focus:outline-none focus:border-[#006b5f] transition-all cursor-pointer rounded-t-xl">
+<option disabled="" selected="" value="">Seleccione ubicación</option>
+<option>Bogotá D.C.</option>
+<option>Medellín</option>
+<option>Cali</option>
+<option>Barranquilla</option>
+<option>Cartagena</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline pointer-events-none group-focus-within:rotate-180 transition-transform">expand_more</span>
+</div>
+<p class="text-[11px] text-on-surface-variant/70 italic px-2">Especifique la región para sincronizar el currículo local.</p>
+</div>
+<!-- Selector Grado -->
+<div class="space-y-4">
+<label class="flex items-center gap-2 text-sm font-semibold text-on-surface-variant uppercase tracking-widest ml-1">
+<span class="material-symbols-outlined text-sm" data-icon="layers">layers</span>
+                            Nivel Académico (Grado)
+                        </label>
+<div class="relative group">
+<select class="w-full bg-surface-container-low border-b-2 border-outline-variant py-4 px-4 text-on-surface font-semibold appearance-none focus:outline-none focus:border-[#006b5f] transition-all cursor-pointer rounded-t-xl">
+<option disabled="" selected="" value="">Seleccione grado</option>
+<option>Sexto (6º)</option>
+<option>Séptimo (7º)</option>
+<option>Octavo (8º)</option>
+<option>Noveno (9º)</option>
+<option>Décimo (10º)</option>
+<option>Once (11º)</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline pointer-events-none group-focus-within:rotate-180 transition-transform">expand_more</span>
+</div>
+<p class="text-[11px] text-on-surface-variant/70 italic px-2">Seleccione el nivel para filtrar los estándares educativos.</p>
+</div>
+</div>
+<!-- CTA Buttons -->
+<div class="mt-12 flex flex-col sm:flex-row gap-4 pt-8 border-t border-outline-variant/10">
+<button class="flex-1 bg-[#072441] text-white py-5 px-8 rounded-xl font-bold text-lg shadow-[0px_8px_20px_rgba(7,36,65,0.2)] hover:shadow-[0px_12px_24px_rgba(7,36,65,0.3)] hover:-translate-y-1 transition-all flex items-center justify-center gap-3">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+                        Planificar Jornada
+                    </button>
+<button class="flex-1 bg-[#7af7e3] text-[#072441] py-5 px-8 rounded-xl font-bold text-lg hover:brightness-95 transition-all flex items-center justify-center gap-3">
+<span class="material-symbols-outlined" data-icon="fact_check">fact_check</span>
+                        Revisar Exámenes
+                    </button>
+</div>
+</div>
+<!-- Secondary Info Cards -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<!-- Statistics Card -->
+<div class="bg-[#072441] text-white p-6 rounded-[2rem] overflow-hidden relative group">
+<div class="relative z-10">
+<p class="text-[#7af7e3] text-xs font-bold uppercase tracking-widest mb-1">Carga de Trabajo</p>
+<h4 class="text-3xl font-bold mb-4">92% Capacidad</h4>
+<div class="w-full bg-white/10 h-2 rounded-full mb-4 overflow-hidden">
+<div class="bg-[#7af7e3] h-full w-[92%]"></div>
+</div>
+<p class="text-sm text-white/70 leading-relaxed">Ha completado 24 de 26 planificaciones curriculares este mes.</p>
+</div>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-[120px] opacity-10 rotate-12" data-icon="trending_up">trending_up</span>
+</div>
+<!-- Recent Activity Card -->
+<div class="bg-surface-container-high p-6 rounded-[2rem] border border-outline-variant/10">
+<h4 class="font-bold text-[#072441] mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-[#006b5f]" data-icon="history">history</span>
+                        Actividad Reciente
+                    </h4>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[#072441] text-xl" data-icon="edit_note">edit_note</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Actualizado Grado 9º</p>
+<p class="text-[11px] text-on-surface-variant">Bogotá - Hace 2 horas</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[#006b5f] text-xl" data-icon="description">description</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Examen Bimestral Generado</p>
+<p class="text-[11px] text-on-surface-variant">Grado 7º - Ayer</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 py-3 text-xs font-bold text-[#006b5f] hover:bg-white/50 rounded-xl transition-all">Ver todo el historial</button>
+</div>
+</div>
+<!-- Featured Section Content (Visual Cards) -->
+<div class="col-span-12 grid grid-cols-1 md:grid-cols-3 gap-8 mt-4">
+<div class="group relative aspect-[16/10] overflow-hidden rounded-[2.5rem] cursor-pointer">
+<img alt="Interior of a minimalist modern library" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBq6LIeJXNs_zkLaTaLc-I0ky9BdQ7RnQXcdcSIVFvTGaIjZEEg1PfJt4GmBMdyJeVzSaxV2TgHNeYcXL9jDP4Aue4ZysXN1vC1gEuOPLd6dIfyjXvD2-cOoINb31qC8Z7dHMS-gwF_3fOiLtkiZnbr5L66TyChqloxLSYadAZs3D0lkVz_KQGSpj0c7MlYqAsUhIDFawcE2pUd9HCOtsU2YOWbDJUnrpZt2opglnnWXuUX6ICRxnWFAAgdJTZiFNPR0kRteY_bYpA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#072441]/90 via-[#072441]/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<p class="text-[#7af7e3] text-xs font-bold uppercase mb-1">Recursos</p>
+<h5 class="text-white text-xl font-bold">Biblioteca Digital</h5>
+</div>
+</div>
+<div class="group relative aspect-[16/10] overflow-hidden rounded-[2.5rem] cursor-pointer">
+<img alt="Digital workspace with interactive screens" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgXEvY-gqiF34BL2H8TSNg4esqgs6iamqsiA1d0-BoXN16xpoviqBfp9kDlWomS7l1DIW7Jotyd6fF3U7e3LO34gjHUfsxetw2S4w0kVhlJozyvv5RZIwhDokDTCZLhU0Yx3lt5XAliTCEWa4tvrwQqwUiGm-hxbO5z_e0urGCxKKZxxzZePmikbhuK0L7fn8e9fHdqQmVKq0Td1_yS7fs-NM9A320tKhEplsWn2Og25lMsfulbx-UAa63-sVEu0ohZNDfSsJrtNA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#072441]/90 via-[#072441]/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<p class="text-[#7af7e3] text-xs font-bold uppercase mb-1">Herramientas</p>
+<h5 class="text-white text-xl font-bold">Laboratorio de IA</h5>
+</div>
+</div>
+<div class="group relative aspect-[16/10] overflow-hidden rounded-[2.5rem] cursor-pointer">
+<img alt="Diverse group of professional educators" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyrEMy_efsG8199JR3zRxvtAZf0QQY6STQQrrfmTeyAdONnSBbipFtaluNuf1AY9fcRTyXNVoBwJFZ88qrCx8zFJZreK8DeVbgbFcI1IoQuFaQLYd-DKe-pcPTxdkazeRXtU4c5CSBR6GYG2uHiFiUad05WacMqmCZtA5G8-L7c7HUgVfij5jPaQ_oc5AQ1ICx_PEXeZbTj5yXLNs9TR03G2x6smVjwHoUJyaQpaCB0WB3XcPw9wQ2nwR9W3iSShrhq_Dm9ULAFL4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#072441]/90 via-[#072441]/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<p class="text-[#7af7e3] text-xs font-bold uppercase mb-1">Comunidad</p>
+<h5 class="text-white text-xl font-bold">Red de Editores</h5>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

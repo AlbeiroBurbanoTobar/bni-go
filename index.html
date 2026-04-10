@@ -1,43 +1,144 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="/src/styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tauri App</title>
+    <meta name="description" content="BNI Academia — Plataforma de gestión educativa y aprendizaje profesional para miembros BNI." />
+    <title>BNI Academia - Iniciar Sesión</title>
+    <link rel="stylesheet" href="/src/styles.css" />
     <script type="module" src="/src/main.ts" defer></script>
   </head>
 
   <body>
-    <main class="container">
-      <h1>Welcome to Tauri</h1>
+    <div class="login-container">
+      <!-- ========== LEFT PANEL: Branding ========== -->
+      <div class="brand-panel">
+        <div class="brand-content">
+          <div>
+            <div class="brand-logo-text">BNI Academia</div>
+            <div class="brand-underline"></div>
+          </div>
 
-      <div class="row">
-        <a href="https://vite.dev" target="_blank">
-          <img src="/src/assets/vite.svg" class="logo vite" alt="Vite logo" />
-        </a>
-        <a href="https://tauri.app" target="_blank">
-          <img
-            src="/src/assets/tauri.svg"
-            class="logo tauri"
-            alt="Tauri logo"
-          />
-        </a>
-        <a href="https://www.typescriptlang.org/docs" target="_blank">
-          <img
-            src="/src/assets/typescript.svg"
-            class="logo typescript"
-            alt="typescript logo"
-          />
-        </a>
+          <div>
+            <h1 class="brand-headline">
+              Tu portal de <br/>
+              <span class="accent">aprendizaje</span> <br/>
+              profesional
+            </h1>
+            <p class="brand-description">
+              Accede a cursos exclusivos y herramientas de vanguardia
+              diseñadas para potenciar tu éxito dentro de la red BNI.
+            </p>
+            <div class="brand-badge">
+              <span class="pulse-dot"></span>
+              Plataforma de Alto Rendimiento · 2026
+            </div>
+          </div>
+        </div>
+
+        <div class="brand-stats">
+          <div>
+            <div class="stat-value">+1,200</div>
+            <div class="stat-label">Miembros activos</div>
+          </div>
+          <div>
+            <div class="stat-value">80+</div>
+            <div class="stat-label">Cursos certificados</div>
+          </div>
+        </div>
       </div>
-      <p>Click on the Tauri logo to learn more about the framework</p>
 
-      <form class="row" id="greet-form">
-        <input id="greet-input" placeholder="Enter a name..." />
-        <button type="submit">Greet</button>
-      </form>
-      <p id="greet-msg"></p>
-    </main>
+      <!-- ========== RIGHT PANEL: Login Form ========== -->
+      <div class="form-panel">
+        <div class="form-wrapper">
+          <!-- Logo -->
+          <div class="form-logo">
+            <img src="/src/assets/bni-offline.png" alt="BNI Logo" />
+            <p class="institutional-label">Bitácora de Navegación Institucional</p>
+          </div>
+
+          <!-- Header -->
+          <header class="form-header">
+            <h2>Bienvenido de vuelta</h2>
+            <p>Introduce tus credenciales para acceder al campus virtual</p>
+          </header>
+
+          <!-- Form -->
+          <form class="login-form" id="login-form">
+            <!-- Username -->
+            <div class="field-group">
+              <label for="username">Usuario Académico</label>
+              <div class="input-wrapper">
+                <span class="material-symbols-outlined icon">person</span>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  placeholder="nombre.apellido"
+                  autocomplete="username"
+                />
+              </div>
+            </div>
+
+            <!-- Password -->
+            <div class="field-group">
+              <label for="password">Contraseña</label>
+              <div class="input-wrapper">
+                <span class="material-symbols-outlined icon">lock</span>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="••••••••"
+                  autocomplete="current-password"
+                />
+                <button type="button" class="toggle-password" id="toggle-password" aria-label="Mostrar contraseña">
+                  <span class="material-symbols-outlined">visibility</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="form-actions">
+              <div class="checkbox-group">
+                <input type="checkbox" id="remember" />
+                <label for="remember">Recordar sesión</label>
+              </div>
+              <a href="#" class="forgot-link">¿Olvidó su contraseña?</a>
+            </div>
+
+            <!-- Error message -->
+            <div class="login-error" id="login-error">
+              <span class="material-symbols-outlined">error</span>
+              <span id="login-error-text">Credenciales incorrectas</span>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="btn-submit" id="btn-login">
+              <span>Acceder al sistema</span>
+              <span class="material-symbols-outlined">login</span>
+            </button>
+          </form>
+
+          <!-- Divider -->
+          <div class="divider">
+            <span>Asistencia</span>
+          </div>
+
+          <!-- Support -->
+          <p class="support-text">
+            ¿Dificultades técnicas?
+            <a href="#">Contactar soporte BNI</a>
+          </p>
+
+          <!-- Footer -->
+          <footer class="form-footer">
+            <a href="#">BNI Learning Hub</a>
+            <a href="#">Términos</a>
+            <a href="#">Privacidad</a>
+          </footer>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

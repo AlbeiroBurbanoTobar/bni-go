@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "tauri-app",
+  "productName": "BNI Academia",
   "version": "0.1.0",
   "identifier": "com.albei.bnigo",
   "build": {
@@ -13,9 +13,9 @@
     "withGlobalTauri": true,
     "windows": [
       {
-        "title": "tauri-app",
-        "width": 800,
-        "height": 600
+        "title": "BNI Academia - Gestión Educativa",
+        "width": 1280,
+        "height": 800
       }
     ],
     "security": {
