@@ -31,19 +31,22 @@
   --radius-full: 9999px;
 
   --shadow-sophisticated: 0 20px 25px -5px rgba(33, 58, 88, 0.05),
-                           0 10px 10px -5px rgba(33, 58, 88, 0.02);
+    0 10px 10px -5px rgba(33, 58, 88, 0.02);
   --shadow-cta: 0 12px 35px -8px rgba(33, 58, 88, 0.35);
   --shadow-cta-hover: 0 12px 35px -8px rgba(38, 166, 154, 0.25);
 }
 
 /* --- Reset & Base --- */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   overflow: hidden;
   font-family: var(--font-family);
@@ -59,6 +62,19 @@ html, body {
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
   user-select: none;
+}
+
+.creator-credit {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 1.5rem;
+  font-size: 0.55rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgb(255, 255, 255);
+  z-index: 100;
+  pointer-events: none;
 }
 
 /* ============================================
@@ -152,6 +168,13 @@ html, body {
   margin-bottom: 1.75rem;
 }
 
+.brand-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
 .brand-badge {
   display: inline-flex;
   align-items: center;
@@ -169,34 +192,58 @@ html, body {
 .brand-badge .pulse-dot {
   width: 0.5rem;
   height: 0.5rem;
-  background: var(--secondary);
+  background: currentColor;
   border-radius: 50%;
   animation: pulse 2s ease-in-out infinite;
 }
 
-/* Stats bar */
-.brand-stats {
+/* Badge Color Themes */
+.badge-performance {
+  background: rgba(38, 166, 154, 0.1);
+  color: var(--secondary);
+  border-color: rgba(38, 166, 154, 0.2);
+}
+
+.badge-connectivity {
+  background: rgba(45, 149, 239, 0.1); /* Soft Blue */
+  color: #5bb2ff;
+  border-color: rgba(45, 149, 239, 0.2);
+}
+
+.badge-management {
+  background: rgba(251, 191, 36, 0.1); /* Amber/Gold */
+  color: #fbbf24;
+  border-color: rgba(251, 191, 36, 0.2);
+}
+
+.badge-impact {
+  background: rgba(236, 72, 153, 0.1); /* Rose/Violet */
+  color: #f472b6;
+  border-color: rgba(236, 72, 153, 0.2);
+}
+
+/* Brand footer links */
+.brand-legal-footer {
   position: relative;
   z-index: 1;
   display: flex;
-  gap: 3rem;
-  padding-top: 1.5rem;
+  gap: 2rem;
+  padding: 1.5rem 0 0 8rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.stat-value {
-  font-size: 2rem;
+.brand-legal-footer a {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-size: 0.75rem;
   font-weight: 700;
-  color: #fff;
-}
-
-.stat-label {
-  font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: rgba(255, 255, 255, 0.4);
-  font-weight: 900;
-  margin-top: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.brand-legal-footer a:hover {
+  color: var(--secondary);
 }
 
 /* --- Right Panel: Login Form --- */
@@ -317,7 +364,7 @@ html, body {
   box-shadow: 0 0 0 4px rgba(38, 166, 154, 0.1);
 }
 
-.input-wrapper input:focus ~ .icon,
+.input-wrapper input:focus~.icon,
 .input-wrapper:focus-within .icon {
   color: var(--secondary);
 }
@@ -372,19 +419,7 @@ html, body {
   cursor: pointer;
 }
 
-.forgot-link {
-  font-size: 0.85rem;
-  color: var(--secondary);
-  font-weight: 700;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
 
-.forgot-link:hover {
-  color: var(--primary);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
 
 /* Submit button */
 .btn-submit {
@@ -528,6 +563,7 @@ html, body {
     opacity: 0;
     transform: translateX(-40px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -539,6 +575,7 @@ html, body {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -546,16 +583,39 @@ html, body {
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
 }
 
 @keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  20% { transform: translateX(-6px); }
-  40% { transform: translateX(6px); }
-  60% { transform: translateX(-4px); }
-  80% { transform: translateX(4px); }
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-6px);
+  }
+
+  40% {
+    transform: translateX(6px);
+  }
+
+  60% {
+    transform: translateX(-4px);
+  }
+
+  80% {
+    transform: translateX(4px);
+  }
 }
 
 /* ============================================
@@ -589,6 +649,143 @@ html, body {
   }
 }
 
+/* ============================================
+   VERTICAL RESPONSIVENESS (For low height screens)
+   ============================================ */
+@media (max-height: 850px) {
+
+  .brand-panel,
+  .form-panel {
+    padding: 2rem 3rem;
+  }
+
+  .brand-underline {
+    margin-bottom: 2rem;
+  }
+
+  .brand-headline {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .brand-description {
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+    line-height: 1.5;
+  }
+
+  .form-logo {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-logo img {
+    width: 10rem;
+  }
+
+  .form-header {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-header h2 {
+    font-size: 1.75rem;
+  }
+
+  .login-form {
+    gap: 1rem;
+  }
+
+  .btn-submit {
+    padding: 1rem 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .divider {
+    margin-top: 1.5rem;
+  }
+
+  .support-text {
+    margin-top: 1rem;
+  }
+
+  .form-footer {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+  }
+}
+
+@media (max-height: 720px) {
+
+  .brand-panel,
+  .form-panel {
+    padding: 1.5rem 2.5rem;
+  }
+
+  .brand-logo-text {
+    font-size: 1.5rem;
+  }
+
+  .brand-underline {
+    margin-bottom: 1.5rem;
+  }
+
+  .brand-headline {
+    font-size: 2.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .brand-badge {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .form-logo {
+    margin-bottom: 1rem;
+  }
+
+  .form-logo img {
+    width: 8rem;
+  }
+
+  .form-logo .institutional-label {
+    margin-top: 0.5rem;
+    font-size: 0.7rem;
+  }
+
+  .form-header {
+    margin-bottom: 1rem;
+  }
+
+  .form-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .form-header p {
+    font-size: 0.85rem;
+  }
+
+  .input-wrapper input {
+    padding: 0.75rem 0.75rem 0.75rem 2.75rem;
+    font-size: 0.9rem;
+  }
+
+  .btn-submit {
+    padding: 0.85rem 1.25rem;
+  }
+
+  .divider {
+    margin-top: 0.75rem;
+  }
+
+  .support-text {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .form-footer {
+    margin-top: 0.75rem;
+    gap: 1.5rem;
+  }
+}
 
 /* ============================================
    DASHBOARD — Panel de Selección BNI Academia
@@ -1046,7 +1243,7 @@ html, body {
   transition: transform 0.2s ease;
 }
 
-.custom-select:focus + .select-arrow {
+.custom-select:focus+.select-arrow {
   transform: translateY(-50%) rotate(180deg);
 }
 
