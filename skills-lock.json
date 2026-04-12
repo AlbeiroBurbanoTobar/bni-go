@@ -16,6 +16,11 @@
       "sourceType": "github",
       "computedHash": "6332db5cecc6b516c20de5c79fdbe1f5d8ec2aaf2a0aa115848ed917a5c5126e"
     },
+    "supabase-auth-storage-realtime-core": {
+      "source": "jeremylongshore/claude-code-plugins-plus-skills",
+      "sourceType": "github",
+      "computedHash": "3e53acf5c00ac524c7c766d512dd0ee075e619e57ce1b54ee5ee79e8b9d6ff5f"
+    },
     "tauri-development": {
       "source": "mindrally/skills",
       "sourceType": "github",
