@@ -1,4 +1,6 @@
 import { invoke } from "@tauri-apps/api/core";
+import { supabase } from "./lib/supabaseClient";
+import { redirectIfAuthenticated } from "./auth";
 
 // --- DOM Elements ---
 let usernameInput: HTMLInputElement | null;
@@ -8,6 +10,7 @@ let loginForm: HTMLFormElement | null;
 let loginError: HTMLElement | null;
 let loginErrorText: HTMLElement | null;
 let btnLogin: HTMLButtonElement | null;
+let rememberCheckbox: HTMLInputElement | null;
 
 // --- Password Visibility Toggle ---
 function setupPasswordToggle() {
@@ -49,10 +52,10 @@ async function handleLogin(e: Event) {
   e.preventDefault();
   hideError();
 
-  const username = usernameInput?.value.trim() ?? "";
+  const email = usernameInput?.value.trim() ?? ""; // Using this as email for Supabase
   const password = passwordInput?.value ?? "";
 
-  if (!username || !password) {
+  if (!email || !password) {
     showError("Por favor, complete todos los campos.");
     return;
   }
@@ -64,27 +67,46 @@ async function handleLogin(e: Event) {
   }
 
   try {
-    // Use the existing Tauri 'greet' command as placeholder
-    // Replace with actual login logic when the backend is ready
-    const result = await invoke("greet", { name: username });
-    console.log("Login response:", result);
+    // Authenticate with Supabase
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
 
-    // Store username for dashboard and navigate
-    sessionStorage.setItem("bni_username", username);
+    if (error) {
+      console.error("Login error from Supabase:", error);
+      // Determine the error message
+      let errorMessage = "Error al autenticar. Verifique sus credenciales.";
+      if (error.message.includes("Invalid login credentials")) {
+        errorMessage = "Credenciales incorrectas.";
+      } else if (error.message.includes("Email not confirmed")) {
+        errorMessage = "Por favor confirme su correo electrónico.";
+      }
+      
+      showError(errorMessage);
+      throw error;
+    }
+
+    // Call Tauri greet just as an example of backend integration (optional)
+    await invoke("greet", { name: data.user?.email || "Usuario" });
+
+    // Remember email logic
+    if (rememberCheckbox?.checked) {
+      localStorage.setItem("bni_remembered_email", email);
+    } else {
+      localStorage.removeItem("bni_remembered_email");
+    }
 
     if (btnLogin) {
       btnLogin.querySelector("span:first-child")!.textContent = "¡Bienvenido!";
       btnLogin.style.background = "linear-gradient(135deg, #26A69A 0%, #1D9E75 100%)";
     }
 
-    // Navigate to dashboard after brief success animation
+    // Navigate to dashboard
     setTimeout(() => {
       window.location.href = "/dashboard.html";
     }, 800);
   } catch (error) {
-    console.error("Login error:", error);
-    showError("Error al conectar con el servidor. Intente de nuevo.");
-
     if (btnLogin) {
       btnLogin.disabled = false;
       btnLogin.querySelector("span:first-child")!.textContent = "Acceder al sistema";
@@ -95,6 +117,9 @@ async function handleLogin(e: Event) {
 
 // --- Initialize ---
 window.addEventListener("DOMContentLoaded", () => {
+  // Check if user is already authenticated
+  redirectIfAuthenticated();
+
   usernameInput = document.querySelector("#username");
   passwordInput = document.querySelector("#password");
   togglePasswordBtn = document.querySelector("#toggle-password");
@@ -102,6 +127,13 @@ window.addEventListener("DOMContentLoaded", () => {
   loginError = document.querySelector("#login-error");
   loginErrorText = document.querySelector("#login-error-text");
   btnLogin = document.querySelector("#btn-login");
+  rememberCheckbox = document.querySelector("#remember");
+
+  const savedEmail = localStorage.getItem("bni_remembered_email");
+  if (savedEmail && usernameInput && rememberCheckbox) {
+    usernameInput.value = savedEmail;
+    rememberCheckbox.checked = true;
+  }
 
   setupPasswordToggle();
   loginForm?.addEventListener("submit", handleLogin);
